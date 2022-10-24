@@ -17,5 +17,6 @@ public class OrderServiceImpl implements OrderService {
         int discountPrice = discountPolicy.discount(member, itemPrice);
 
         return new Order(memberId, itemName, itemPrice, discountPrice);
+        // main 으로 테스트 보다 junit @Test 로 검증을 생활화 하자
     }
 }
