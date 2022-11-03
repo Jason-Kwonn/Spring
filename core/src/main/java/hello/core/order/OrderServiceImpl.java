@@ -3,20 +3,26 @@ package hello.core.order;
 import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
 
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
 
-    @Autowired // 생성자 위에 붙이면 자동 의존관계 주입
+// @RequiredArgsConstructor 를 붙이면, 하단 생성자가 자동으로 작성 됨
+/*    생성자 위에 붙이면 자동 의존관계 주입
+    @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
+
+ */
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
