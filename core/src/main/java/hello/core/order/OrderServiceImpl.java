@@ -8,21 +8,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
 
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
 
+
+
 // @RequiredArgsConstructor 를 붙이면, 하단 생성자가 자동으로 작성 됨
-/*    생성자 위에 붙이면 자동 의존관계 주입
     @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
-
- */
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {

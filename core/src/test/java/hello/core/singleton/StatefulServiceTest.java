@@ -23,7 +23,7 @@ class StatefulServiceTest {
 //ThreadA: 사용자A 주문 금액 조회
         int price = statefulService1.getPrice();
 //ThreadA: 사용자A는 10000원을 기대했지만, 기대와 다르게 20000원 출력 System.out.println("price = " + price);
-        Assertions.assertThat(statefulService1.getPrice()).isEqualTo(20000);
+        Assertions.assertThat(statefulService1.getPrice()).isEqualTo(0);
     }
     static class TestConfig {
         @Bean
